@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: auth
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres5
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  security:
+    user:
+      name: root
+      password: root
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: none
+#    hibernate.ddl-auto: create
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: auth-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+kafka:
+  topic:
+    user-creation: user-creation-topic
+server:
+  port: 8081
+token:
+  signing:
+    key: secret

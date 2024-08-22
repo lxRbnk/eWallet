@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: report
+  kafka:
+    bootstrap-servers: localhost:9092
+  security:
+    user:
+      name: root
+      password: root
+server:
+  port: 8084
+
+#wallet-microservice
+wallet:
+  service:
+    url: http://localhost:8083
+#user-microservice
+user:
+  service:
+    url: http://localhost:8081
+
+
+
+#token:
+#  signing:
+#    key: secret

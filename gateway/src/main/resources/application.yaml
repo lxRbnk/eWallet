@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: gateway
+
+jwt:
+  secret:
+    secret

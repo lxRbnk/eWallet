@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: wallet
+  kafka:
+    bootstrap-servers: localhost:9092
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres5
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  security:
+    user:
+      name: root
+      password: root
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: none
+#    hibernate.ddl-auto: create
+server:
+  port: 8083
+
+#token:
+#  signing:
+#    key: secret

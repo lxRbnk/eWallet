@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: user
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: user-service-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres5
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  security:
+    user:
+      name: root
+      password: root
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: none
+#    hibernate.ddl-auto: create
+kafka:
+  topic:
+    user-creation: user-creation-topic
+
+server:
+  port: 8082
+
+#token:
+#  signing:
+#    key: secret
