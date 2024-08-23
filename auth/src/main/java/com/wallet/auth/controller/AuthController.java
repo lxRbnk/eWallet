@@ -4,6 +4,7 @@ import com.wallet.auth.dto.AuthenticationDto;
 import com.wallet.auth.dto.UserDto;
 import com.wallet.auth.service.AuthService;
 import com.wallet.auth.service.DetailsService;
+import com.wallet.auth.service.UserService;
 import com.wallet.auth.util.JwtUtil;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,11 +22,6 @@ import java.util.Map;
 public class AuthController {
 
     private final AuthService authService;
-
-    @GetMapping("/test")
-    public String go(){
-        return "test message";
-    }
 
     @PostMapping("/registration")
     public ResponseEntity<Map<String, String>> performRegistration(@RequestBody @Valid UserDto userDto,

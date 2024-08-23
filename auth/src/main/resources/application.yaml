@@ -25,7 +25,8 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 kafka:
   topic:
-    user-creation: user-creation-topic
+    user-topic-create: user-topic-create
+    user-topic-delete: user-topic-delete
 server:
   port: 8081
 token:

@@ -4,13 +4,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wallet.auth.dto.AuthenticationDto;
 import com.wallet.auth.dto.UserDto;
+import com.wallet.auth.kafka.CreateUserProducer;
 import com.wallet.auth.model.User;
 import com.wallet.auth.util.JwtUtil;
 import com.wallet.auth.validator.CustomValidator;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -32,7 +31,7 @@ public class AuthService {
     private final JwtUtil jwtUtil;
     private final CustomValidator customValidator;
     private final AuthenticationManager authenticationManager;
-    private final KafkaProducerService kafkaProducerService;
+    private final CreateUserProducer kafkaProducerService;
     private final ObjectMapper objectMapper;
 
     public ResponseEntity<Map<String, String>> registrationUser(UserDto userDto, BindingResult bindingResult) {

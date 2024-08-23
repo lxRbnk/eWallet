@@ -22,11 +22,12 @@ spring:
 #    hibernate.ddl-auto: create
 kafka:
   topic:
-    user-creation: user-creation-topic
+    user-topic-create: user-topic-create
+    user-topic-delete: user-topic-delete
 
 server:
   port: 8082
 
-#token:
-#  signing:
-#    key: secret
+token:
+  signing:
+    key: secret

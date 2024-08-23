@@ -1,9 +1,9 @@
-package com.wallet.user.service;
+package com.wallet.user.kafka;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wallet.user.dto.UserDto;
-import com.wallet.user.model.User;
+import com.wallet.user.service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -13,15 +13,15 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class UserCreationListener {
+public class CreateUserListener {
 
     private final ObjectMapper objectMapper;
     private final UserService userService;
 
-    @KafkaListener(topics = "${kafka.topic.user-creation}", groupId = "user-service-group")
+    @KafkaListener(topics = "${kafka.topic.user-topic-create}", groupId = "user-service-group")
     public void listenUserCreation(ConsumerRecord<String, String> record) {
         try {
-            System.out.println("Received message: " + record.value());//fixme
+            log.info("Received message: " + record.value());
             UserDto userDto = objectMapper.readValue(record.value(), UserDto.class);
             userService.create(userDto);
         } catch (JsonProcessingException e) {
