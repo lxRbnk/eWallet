@@ -30,7 +30,7 @@ public class WalletController {
         }
     }
 
-    @DeleteMapping("/{id}") //method for admin
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteWallet(
             @PathVariable Long id) {
         if (walletService.delete(id)) {
